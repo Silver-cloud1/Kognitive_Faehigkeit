@@ -1,0 +1,68 @@
+<!Doctype html>
+<head>
+    <title>Kognitive Fähigkeit</title>
+</head>
+<body>
+     <button>Start</button>
+     <div class="box">
+        <div class="square-container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    background-color: black;
+    }
+.box {
+    color: balck;
+    width: 1200px;
+    height: 800px;
+    border: 5px solid;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.square-container {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 100px;
+    justify-content: center;
+    margin-top: 40px;
+    column-gap: 150px;
+}
+.square{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid white;
+}
+button {
+    width: 150px;
+    height: 80px;
+    border-radius: 10px;
+    color: black;
+    font-size: 30px;
+    background-color:green
+
+    
+}
+</style>
+<script>
+</script>
