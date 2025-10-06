@@ -1,9 +1,9 @@
 <!Doctype html>
 <head>
-    <title>Kognitive Fähigkeit</title>
+    <title>Kognitive Faehigkeit</title>
 </head>
 <body>
-     <button>Start</button>
+     <button onclick="startGame()">Start</button>
      <div class="box">
         <div class="square-container">
             <div class="square"></div>
@@ -52,6 +52,9 @@
     background-color: white;
     border-radius: 8px;
     border: 2px solid white;
+    font-size: 60px;
+    font-weight: bold;
+    justify-content: center;
 }
 button {
     width: 150px;
@@ -65,4 +68,59 @@ button {
 }
 </style>
 <script>
+    const squares = document.querySelectorAll('.square');
+    const startButton = document.querySelector('button');
+    startButton.addEventListener('click', startGame);
+    squares.forEach(square => {
+        square.addEventListener('click', function() {
+            SquareClick(this);
+        });
+    });
+    let timer = 0.62; 
+    let currentNumber = 1;
+    let gameActive = true;
+    function startGame(){
+        currentNumber = 1;
+        gameActive = true;
+        window.setInterval(function(){
+            if (timer > 0)
+            timer--;
+        document.getElementById('timer').innerHTML = timer;
+        if (timer <= 0)
+        timer = 0.62;
+        }, 100);
+        placeRandomNumber()
+        startGuessingPhase()
+    }
+    function placeRandomNumber(){
+        const numbers = [1,2,3,4,5,6,7,8,9];
+        for (let i = numbers.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+    }
+    const numberPositions = {};
+    squares.forEach((square, index) => {
+        const number = numbers[index];
+        square.textContent = number;
+        numberPositions[number] = square;
+    });
+    
+    return numberPositions;
+    }
+    function startGuessingPhase() {
+        if (timer === 0);
+        set.textContent = '';
+    }
+    function SquareClick(clickedSquare){
+        if (currentNumber === 1) {
+            currentNumber = currentNumber + 1;
+        }
+        else {
+            restartGame();
+        }
+    }
+    function restartGame(){
+        timer = 0.62;
+
+    }
 </script>
